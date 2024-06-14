@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comm-Board - HTML5 Admin Template</title>
+
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="assets/vendor/bootstrap-icon/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/vendor/css/simplebar.css">
+    <link rel="stylesheet" href="assets/vendor/css/prettify.css">
+    <link rel="stylesheet" href="assets/vendor/css/bootstrap.min.css">
+    <link id="styles" rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="authentication-area">
+            <div class="form-row">
+                <div class="panel fixed-top p-3">
+                    <div class="theme-color text-center">
+                        <button class="btn-color color-1" id="color-1" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Violets Are Blue"></button>
+                        <button class="btn-color color-2" id="color-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Lavender Indigo"></button>
+                        <button class="btn-color color-3" id="color-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Deep Magenta"></button>
+                        <button class="btn-color color-4" id="color-4" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Blue"></button>
+                        <button class="btn-color color-5" id="color-5" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Medium Aquamarine"></button>
+                        <button class="btn-color color-6" id="color-6" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Orioles Orange"></button>
+                        <button class="btn-color color-7" id="color-7" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Maya Blue"></button>
+                        <button class="btn-color color-8" id="color-8" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Deep Violet"></button>
+                        <button class="btn-color color-9" id="color-9" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Dark"></button>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-body bg-white">
+                        <div class="logo mb-4">
+                            <% if(message.success.length> 0){ %>
+                                <div class="alert alert-success" role="alert">
+                                    <%= message.success %>
+                                </div>
+                                <% } %>
+                                <% if(message.danger.length> 0){ %>
+                                    <div class="alert alert-danger" role="alert">
+                                        <%= message.danger %>
+                                    </div>
+                                <% } %>
+                            <img src="assets/images/logo-2.png" id="logoBig" alt="logo">
+                            <p class="text-center mt-20"><span class="d-block fw-bold mb-10 fs-6">Hello! let's get started</span> Sign in to continue.</p>
+                        </div>
+                        <form class="mb-4" action="/loginData" method="post">
+                            <div class="mb-4">
+                                <div class="form-group has-icon-left">
+                                    <input type="email" name="email" id="email"  class="form-control form-control-lg" placeholder="email" >
+                                    <div class="form-control-icon">
+                                        <i class="bi bi-person-fill"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="mb-4">
+                                <div class="form-group has-icon-left">
+                                    <input type="text" id="password" name="password" class="form-control form-control-lg">
+                                    <div class="form-control-icon">
+                                        <i class="bi bi-key-fill"></i>
+                                    </div>
+                                    <div class="form-control-icon">
+                                        <i class="bi bi-key-fill"></i>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="mb-4">
+                                <div class="form-group has-icon-left">
+                                    <input type="password" name="password" id="password"  class="form-control form-control-lg" placeholder="Password" >
+                                    <div class="form-control-icon">
+                                        <i class="bi bi-key-fill"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit"  class="btn btn-lg btn-primary w-100">Sign In</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/vendor/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/vendor/js/simplebar.min.js"></script>
+    <script src="assets/vendor/js/prettify.js"></script>
+    <script src="assets/vendor/js/dragula.min.js"></script>
+    <script src="assets/vendor/js/bs-dropzone.min.js"></script>
+    <script src="assets/vendor/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+                          

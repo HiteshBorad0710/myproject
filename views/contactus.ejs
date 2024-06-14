@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- Main css -->
+    <link rel="stylesheet" href="/assets/css/remixicon.css">
+    <!-- icon link  -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- Main css -->
+
+</head>
+
+<body>
+
+    <!----------------- start navbar section ----------------->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- logo -->
+            <a class="navbar-brand" href="#"><img src="/assets/images/box-logo-small.png" alt=""></a>
+            <!-- logo -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item fw-bold">
+                        <a class="nav-link heading" href="/index">Home</a>
+                    </li>
+
+
+                    <li class="nav-item fw-bold">
+                        <a class="nav-link heading" href="/contactus">Contact Us</a>
+                    </li>
+
+                    <!-- <li class="nav-item fw-bold">
+                        <a class="nav-link heading" href="/bookslot">Book Slot</a>
+                    </li> -->
+
+                </ul>
+
+                <form class="d-flex ms-auto" role="search">
+                      <li class="nav-item fw-bold list-unstyled">
+                        <a class="nav-link heading btn sc-button text-white" style="padding-left: 15px;" href="/bookslot">Book Slot</a>
+                    </li>
+                    <!-- <button class="btn sc-button text-white" type="submit" onclick="redirectToPage()">Book Now</button> -->
+                </form>
+
+            </div>
+        </div>
+    </nav>
+    <!----------------- end navbar section ----------------->
+
+    <!----------------- start home section ----------------->
+
+    <div class="contactuspage">
+        <div class="contactuspage2">
+            <div class="contactuspage3">
+                <div class="column">
+                    <div class="contactuspage4">
+                        <div class="contactuspage5">Let The World Play</div>
+                        <div class="contactuspage6">
+                            Our mission is making it easier for everyone to play sports and
+                            increasing the
+                            <br />
+                            utilisation of facilities as a result.
+                        </div>
+                        <div class="contactuspage7">
+                            Sports play a pivotal role in bringing people together, sharing
+                            moments and
+                            <br />
+                            enhancing the well-being are reasons that form the essence of Surat
+                            box cricket.
+                        </div>
+                    </div>
+                </div>
+                <div class="column-2">
+                    <img src="/assets/images/contact-info.png" class="img-3" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----------------- end home section ----------------->
+
+    <!----------------- start contactpage section ----------------->
+
+    <div class="section div">
+        <div class="container">
+            <!-- <% if(message.success.length> 0){ %>
+                <div class="alert alert-success" role="alert">
+                    <%= message.success %>
+                </div>
+                <% } %>
+                <% if(message.danger.length> 0){ %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= message.danger %>
+                    </div>
+                <% } %> -->
+                <% if(message.success.length> 0){ %>
+                    <div class="alert alert-success" role="alert">
+                        <%= message.success %>
+                    </div>
+                    <% } %>
+                    <% if(message.danger.length> 0){ %>
+                        <div class="alert alert-danger" role="alert">
+                            <%= message.danger %>
+                        </div>
+                    <% } %>
+                    
+            <form method="post" accept="/contactUs">
+            <div class="row">
+
+                <div class="div-2">Contact form</div>
+                <div class="div-3">Grow Your Business With Surat box cricket</div>
+
+                <div class="col-lg-4 mt-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control form-border" name="name" placeholder="Your Name" id="name" required="">
+                </div><!-- end div -->
+
+                <div class="col-lg-4 mt-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="Your Email">
+                </div><!-- end div -->
+
+                <div class="col-lg-4 mt-3">
+                    <label for="exampleFormControlInput1" class="form-label">Phone</label>
+                    <input type="tel" class="form-control" name="phone" id="exampleFormControlInput1"
+                        placeholder="Your Phone number">
+                </div><!-- end div -->
+
+                <div class="div-4">
+                    <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="message" placeholder="Your Message" rows="4"
+                        required=""></textarea>
+                </div><!-- end div -->
+
+                <div class="col-lg-6 mt-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+            </div><!-- end row -->
+        </form>
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+    <!----------------- end contactpage section ----------------->
+
+    <!----------------- start Footer Box section ----------------->
+
+    <div class="section bg-dark mt-3">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6">
+                    <img src="/assets/images/box-logo-small.png" alt="logo">
+                </div><!-- end col -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-heading">
+                        <h3 class="text-light fw-bold">Office Address</h3>
+                        <p class="sub-title fw-normal">Head office:</p>
+                        <h5 class="loction text-white">312-313, 3rd Floor, Anupam Business Hub, Yogi Chowk, Surat -
+                            395010</h5>
+
+                        <p class="sub-title fw-normal">Contact Number:</p>
+                    </div>
+                </div><!-- end col -->
+
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+    <!-- COPYRIGHT -->
+    <div class="footer-alt bg-dark">
+        <p class="copy-rights">
+            <script>document.write(new Date().getFullYear())</script> © Copyright Designed & Developed by <a href="#"
+                class="text-decoration-none text-white">Cleverminds Infotech.</a>
+        </p>
+    </div>
+
+    <!----------------- end Footer Box section ----------------->
+
+
+
+    <!-- js link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <!-- moving text js -->
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <!-- js link -->
+
+</body>
+
+</html>

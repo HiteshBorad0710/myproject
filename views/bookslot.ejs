@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comm-Board - HTML5 Admin Template</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Datepicker CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Datepicker CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="favicon.png"> -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap-icon/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/vendor/css/simplebar.css">
+    <link rel="stylesheet" href="assets/vendor/css/bs-dropzone.min.css">
+    <link rel="stylesheet" href="assets/vendor/css/bootstrap.min.css">
+    <link id="styles" rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Theme customization -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h4 id="offcanvasRightLabel">Theme Customization</h4>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="nav-position mb-30">
+                    <p><span class="text-primary"><i class="bi bi-octagon-fill"></i></span> Click the button bellow to
+                        change navbar position <strong>(Top/Left)</strong></p>
+                    <a role="button" class="btn btn-primary" id="navChange"><i class="bi bi-arrow-bar-up"></i></a>
+                </div>
+                <div class="theme-color">
+                    <p><span class="text-primary"><i class="bi bi-octagon-fill"></i></span> Click on any color bellow to
+                        change theme color</p>
+                    <button class="btn-color color-1" id="color-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Violets Are Blue"></button>
+                    <button class="btn-color color-2" id="color-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Lavender Indigo"></button>
+                    <button class="btn-color color-3" id="color-3" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Deep Magenta"></button>
+                    <button class="btn-color color-4" id="color-4" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Blue"></button>
+                    <button class="btn-color color-5" id="color-5" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Medium Aquamarine"></button>
+                    <button class="btn-color color-6" id="color-6" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Orioles Orange"></button>
+                    <button class="btn-color color-7" id="color-7" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Maya Blue"></button>
+                    <button class="btn-color color-8" id="color-8" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Deep Violet"></button>
+                    <button class="btn-color color-9" id="color-9" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Dark"></button>
+                </div>
+            </div>
+        </div>
+        <!-- Theme customization -->
+
+       
+        <!-- header -->
+
+        <!-- main sidebar -->
+     
+        <!-- main sidebar -->
+
+        <!-- main-content -->
+        <div class="main-content-2">
+            <div class="bg-box">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="panel mb-g ">
+                        <% if(message.success.length> 0){ %>
+                            <div class="alert alert-success" role="alert">
+                                <%= message.success %>
+                            </div>
+                            <% } %>
+                            <% if(message.danger.length> 0){ %>
+                                <div class="alert alert-danger" role="alert">
+                                    <%= message.danger %>
+                                </div>
+                            <% } %>
+                            
+                        <div class="panel-heading text-white fw-bold">
+                            <h3>Book Time Slot</h3>
+                        </div>
+                        <div class="panel-body"> 
+                            <form class="add-product" method="post" action="/addbookslot">
+                                <div class="row g-lg-4 g-2 align-items-center bookslot" style="padding-top: 150px;">
+                                    <!-- <div class="col-sm-4">
+                                        <label for="AddProduct">Product Thumbnail :</label>
+                                    </div> -->
+                                    <!-- <div class="col-sm-8">
+                                        <input type="file" id="AddProduct" name="Product Thumbnail" class="form-control form-control-lg" accept=".jpg,.jpeg,.png" multiple>
+                                    </div> -->
+                                    <!-- <div class="col-sm-4">
+                                        <label for="SKU">Product SKU :</label>
+                                    </div> -->
+                                    <!-- <div class="col-sm-8">
+                                        <input type="text" id="SKU" name="SKU" class="form-control form-control-lg">
+                                    </div> -->
+                                    <!-- <div class="col-sm-4">
+                                        <label for="date">Date:</label>
+                                      </div>
+                                      <div class="col-sm-8">
+                                        <input type="text" id="date" name="date" class="form-control form-control-lg datepicker">
+                                      </div> -->
+                                      <div class="col-sm-4">
+                                        <!-- <label for="date">Select Date:</label> -->
+                                        <label for="date" class="dateslot" style="color: white; padding-left: 75%; font-size: 18px;">Select Date : </label>
+                                    </div>
+                                    <!-- Assume you have HTML elements for displaying dates -->
+
+                                    <div class="col-sm-8">
+                                        <p id="date-error-message" style="color: red; display: none;">Please select today's date or a future date.</p>
+                                        <input type="date" id="date" name="date" value="<%=formattedDate %>" class="col-sm-3" style="padding: 10px;">
+                                        
+                                        <!-- <input type="date" id="selectedDate" name="date" value="<%= selectedDate %>"> -->
+                                    </div>
+                                      <div class="col-sm-4">
+                                        <label for="ProductName" class="dateslot"  style="color: white; padding-left: 75%; font-size: 18px;">Time Slot : </label>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="btn-group-toggle" data-toggle="buttons">
+
+                                           
+
+                                         <!-- <% timeSlotData.forEach((timeData, timeIndex) => { %>
+                                            <% let date = false; %>
+                                            <% let isBooked = false; %>
+                                            <% bookSlotData.forEach((bookData, bookIndex) => { %>
+                                                <% bookData.time_slot.forEach((slot) => { %>
+                                                    <% if (slot === (timeData.starttime + " to " + timeData.endtime)) { %>
+                                                        <% isBooked = true; %>
+                                                    <% } %>
+                                                <% }); %>
+                                            <% }); %>
+                                            <% if (isBooked) { %>
+                                                <label class="btn btn-danger mt-3 time-slot disabled" style="background-color: red;">
+                                                    <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>" disabled>
+                                                    <%= timeData.starttime %> to <%= timeData.endtime %>
+                                                </label>
+                                            <% } else { %>
+                                                <label class="btn btn-success mt-3 time-slot" style="background-color: green;">
+                                                    <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>">
+                                                    <%= timeData.starttime %> to <%= timeData.endtime %>
+                                                </label>
+                                            <% } %>
+                                        <% }); %> -->
+                                        
+                                        <!-- <% timeSlotData.forEach((timeData, timeIndex) => { %>
+                                            <% let isBookedToday = false; %>
+                                            <% let isBookedTomorrow = false; %>
+                                            <% let slotDateString = ''; %> 
+                                            
+                                            <% bookSlotData.forEach((bookData, bookIndex) => { %>
+                                                <% bookData.time_slot.forEach((slot) => { %>
+                                                    <% if (slot === (timeData.starttime + " to " + timeData.endtime)) { %>
+                                                        <% let slotDate = new Date(bookData.date); %>
+                                                        <% slotDateString = slotDate.toISOString().split('T')[0]; %> 
+                                                        
+                                                        <% if (slotDateString === today) { %>
+                                                            <% isBookedToday = true; %>
+                                                        <% } else if (slotDateString === tomorrow) { %>
+                                                            <% isBookedTomorrow = true; %>
+                                                        <% } %>
+                                                    <% } %>
+                                                <% }); %>
+                                            <% }); %>
+                                            
+                                            <% if (!isBookedToday) { %>
+                                                <label class="btn btn-success mt-3 time-slot " style="background-color: green;">
+                                                    <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>">
+                                                    <%= timeData.starttime %> to <%= timeData.endtime %> <%= slotDateString%>
+                                                </label>
+                                            <% } else if (!isBookedTomorrow) { %>
+                                                <label class="btn btn-success mt-3 time-slot disabled" style="background-color: red;">
+                                                    <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>">
+                                                    <%= timeData.starttime %> to <%= timeData.endtime %> <%= slotDateString%>
+                                                </label>
+                                            <% } else { %>
+                                                <label class="btn btn-success mt-3 time-slot disabled" style="background-color: red;">
+                                                    <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>">
+                                                    <%= timeData.starttime %> to <%= timeData.endtime %>
+                                                </label>
+                                            <% } %>
+                                        <% }); %> -->
+
+                                        <!-- <% timeSlotData.forEach((timeData, timeIndex) => { %>
+                                            <% let isBooked = false; %>
+                                            <% let slotDateString = ''; %> 
+                                        
+                                            <% bookSlotData.forEach((bookData, bookIndex) => { %>
+                                                <% bookData.time_slot.forEach((slot) => { %>
+                                                    <% let slotDate = new Date(bookData.date); %>
+                                                    <% slotDateString = slotDate.toISOString().split('T')[0]; %> 
+                                        
+
+                                                    <% if (slotDateString === selectedDate && slot === (timeData.starttime + " to " + timeData.endtime)) { %>
+                                                        <% isBooked = true; %>
+                                                    <% } %>
+                                                <% }); %>
+                                            <% }); %>
+                                        
+                                          
+                                            <% if (!isBooked) { %>
+                                                <label class="btn btn-success mt-3 time-slot" style="background-color: green;">
+                                                    <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>">
+                                                    <%= timeData.starttime %> to <%= timeData.endtime %> <%= selectedDate %>
+                                                </label>
+                                            <% } else { %>
+                                                <label class="btn btn-success mt-3 time-slot disabled" style="background-color: red;">
+                                                    <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>" disabled>
+                                                    <%= timeData.starttime %> to <%= timeData.endtime %> <%= selectedDate %>
+                                                </label>
+                                            <% } %>
+                                        <% }); %> -->
+
+                                        <!-- <% timeSlotData.forEach((timeData, timeIndex) => { %>
+                                            <% let isBooked = false; %>
+                                            <% let slotDateString = ''; %> 
+                                        
+                                            <% bookSlotData.forEach((bookData, bookIndex) => { %>
+                                                <% bookData.time_slot.forEach((slot) => { %>
+                                                    <% let slotDate = new Date(bookData.date); %>
+                                                    <% slotDateString = slotDate.toISOString().split('T')[0]; %> 
+                                        
+                                                 
+                                                    <% if (slotDateString === selectedDate && slot === (timeData.starttime + " to " + timeData.endtime)) { %>
+                                                        <% isBooked = true; %>
+                                                    <% } %>
+                                                <% }); %>
+                                            <% }); %>
+                                        
+                                          
+                                        <% if (selectedDate === today || selectedDate === tomorrow) { %>
+                                            <% if (!isBooked) { %>
+                                                <label class="btn btn-success mt-3 time-slot" style="background-color: green;">
+                                                    <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>">
+                                                    <%= timeData.starttime %> to <%= timeData.endtime %> <%= selectedDate %>
+                                                </label>
+                                            <% } else { %>
+                                                <label class="btn btn-success mt-3 time-slot disabled" style="background-color: red;">
+                                                    <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>" disabled>
+                                                    <%= timeData.starttime %> to <%= timeData.endtime %> <%= selectedDate %>
+                                                </label>
+                                            <% } %>
+                                        <% } %>
+                                    <% }); %> -->
+
+                                    
+                                    <!-- <% timeSlotData.forEach((timeData, timeIndex) => { %>
+                                        <% let isBooked = false; %>
+                                        <% let slotDateString = ''; %> 
+                                        
+                                        <% bookSlotData.forEach((bookData, bookIndex) => { %>
+                                            <% bookData.time_slot.forEach((slot) => { %>
+                                                <% let slotDate = new Date(bookData.date); %>
+                                                <% slotDateString = slotDate.toISOString().split('T')[0]; %> 
+                                                
+                                                Check if the slot date matches the selected date
+                                                <% if (slotDateString === selectedDate && slot === (timeData.starttime + " to " + timeData.endtime)) { %>
+                                                    <% isBooked = true; %>
+                                                <% } %>
+                                            <% }); %>
+                                        <% }); %>
+                                        
+                                        Display time slots based on whether they are booked or not
+                                        <% if (selectedDate === today || (selectedDate === tomorrow && isBooked)) { %>
+                                            <% if (!isBooked) { %>
+                                                <label class="btn btn-success mt-3 time-slot" style="background-color: green;">
+                                                    <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>">
+                                                    <%= timeData.starttime %> to <%= timeData.endtime %> <%= selectedDate %>
+                                                </label>
+                                            <% } else { %>
+                                                <label class="btn btn-success mt-3 time-slot disabled" style="background-color: red;">
+                                                    <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>" disabled>
+                                                    <%= timeData.starttime %> to <%= timeData.endtime %> <%= selectedDate %>
+                                                </label>
+                                            <% } %>
+                                        <% } else if (selectedDate === tomorrow && !isBooked) { %>
+                                            <label class="btn btn-success mt-3 time-slot" style="background-color: green;">
+                                                <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>">
+                                                <%= timeData.starttime %> to <%= timeData.endtime %> <%= selectedDate %>
+                                            </label>
+                                        <% } %>
+                                    <% }); %> -->
+
+                                    <% timeSlotData.forEach((timeData, timeIndex) => { %>
+                                        <% let isBooked = false; %>
+                                        <% let slotDateString = ''; %>
+                                        
+                                        <% bookSlotData.forEach((bookData, bookIndex) => { %>
+                                            <% bookData.time_slot.forEach((slot) => { %>
+                                                <% let slotDate = new Date(bookData.date); %>
+                                                <% slotDateString = slotDate.toISOString().split('T')[0]; %>
+                                        
+                                                <% if (slotDateString === selectedDate && slot === (timeData.starttime + " to " + timeData.endtime)) { %>
+                                                    <% isBooked = true; %>
+                                                <% } %>
+                                            <% }); %>
+                                        <% }); %>
+                                        
+                                        <!-- Define startTime based on selectedDateTime -->
+                                        <% let currentTime = new Date(); %>
+                                        <% let selectedDateTime = new Date(selectedDate + " " + timeData.starttime); %>
+                                        <% let startTime = new Date(selectedDateTime.toLocaleString('en-US', { timeZone: timeZone })); %>
+                                        <% let isToday = selectedDate === today; %>
+                                        <% let isTomorrow = selectedDate === tomorrow; %>
+                                        <% let isTimeOut = moment(selectedDate + ' ' + timeData.starttime, 'YYYY-MM-DD HH:mm').tz(timeZone).isBefore(currentTimeWithTimeZone); %>
+                                        <!-- Display start time along with the status -->
+                                        <!-- <p>Start Time: <%= timeData.starttime %> <%= isTimeOut ? "(Time Out)" : "" %></p> -->
+                                        
+                                        <% if (timeData.status === '1' && isBooked) { %>
+                                            <!-- Booked button -->
+                                            <label class="btn btn-success mt-3 time-slot disabled" style="background-color: red;">
+                                                <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>" disabled>
+                                                <%= timeData.starttime %> to <%= timeData.endtime %> <%= selectedDate %> (Booked)
+                                            </label>
+                                        <% } else if (timeData.status === '1' && isTimeOut) { %>
+                                            <!-- Time out button if start time has passed and slot is not booked -->
+                                            <label class="btn btn-success mt-3 time-slot disabled" style="background-color: rgb(0, 136, 247);" disabled>
+                                                <!-- Disable the button for time-out slots -->
+                                                <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>" disabled>
+                                                <%= timeData.starttime %> to <%= timeData.endtime %> <%= selectedDate %> (Time Out)
+                                            </label>
+                                        
+                                        <% } else if (timeData.status === '1') { %>
+                                            <!-- Available button if the slot is not booked and the start time has not passed -->
+                                            <label class="btn btn-success mt-3 time-slot" style="background-color: green;">
+                                                <input type="checkbox" name="time_slot" value="<%= timeData.starttime %> to <%= timeData.endtime %>">
+                                                <%= timeData.starttime %> to <%= timeData.endtime %> <%= selectedDate %> 
+                                            </label>
+                                        <% } %>
+                                    <% }); %>
+
+                                    
+                                    <br>
+                                    <br>
+                                    
+                                    </div>
+                                        <div class="">
+                                            <div class="btn-box justify-content-center">
+                                                <button type="reset" class="btn bg-white text-dark fw-bold">Reset</button>
+                                                <!-- <button type="submit" id="saveMenuButton" class="btn btn-primary">Save Menu</button> -->
+                                                <!-- <button type="submit" class="btn fw-bold" style="background-color: #648a1d;">Next</button> -->
+                                                <button type="submit" class="btn fw-bold"  style="background-color: #5cb04f;">Next</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- main-content -->
+    </div>
+
+    <script src="assets/vendor/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/vendor/js/simplebar.min.js"></script>
+    <script src="assets/vendor/js/dragula.min.js"></script>
+    <script src="assets/vendor/js/bs-dropzone.min.js"></script>
+    <script src="assets/vendor/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Bootstrap Datepicker JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+        // Get today's date
+        var today = new Date();
+        const formattedDate = moment().tz(timeZone).format('YYYY-MM-DD HH:mm:ss');
+        console.log( "today" , today)
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+        var yyyy = today.getFullYear();
+        today = yyyy + '-' + mm + '-' + dd;
+    
+        // Set the minimum attribute of the date input field to today
+        $('#date').attr('min', today);
+    
+        // Add change event listener to the date input field
+        $('#date').change(function() {
+            
+            var selectedDate = $(this).val();
+            console.log("selecteDate" ,selectedDate);
+            if (selectedDate < today) {
+                $('#date-error-message').show();
+                $(this).val('');
+            } else {
+                $('#date-error-message').hide();
+            }
+        });
+    });
+    </script>
+
+<script>
+
+    $(document).ready(function() {
+        // Get the selectedDate value from EJS template
+        var selectedDate = '<%= selectedDate %>';
+        $('#date').val(selectedDate);
+        // Function to update time slots based on selected date
+         function updateTimeSlots(selectedDate) {
+            window.location.href="http://localhost:8000/bookslot?selectedDate="+ selectedDate;
+       
+         }
+
+        // Handle change event of date input field
+        $('#date').change(function() {
+            selectedDate = $(this).val();
+            updateTimeSlots(selectedDate);
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        // Get today's date
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+        var yyyy = today.getFullYear();
+        today = yyyy + '-' + mm + '-' + dd;
+        
+        // Get yesterday's date
+        var yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        var y_dd = String(yesterday.getDate()).padStart(2, '0');
+        var y_mm = String(yesterday.getMonth() + 1).padStart(2, '0'); // January is 0!
+        var y_yyyy = yesterday.getFullYear();
+        yesterday = y_yyyy + '-' + y_mm + '-' + y_dd;
+
+        // Set the minimum and maximum attribute of the date input field
+        $('#date').attr('min', today);
+        $('#date').attr('max', '9999-12-31'); // Set a far future date as the maximum date
+        
+        // Add change event listener to the date input field
+        $('#date').change(function() {
+            var selectedDate = $(this).val();
+            
+            if (selectedDate <= yesterday) {
+                $('#date-error-message').show();
+                $(this).val('');
+            } else {
+                $('#date-error-message').hide();
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>

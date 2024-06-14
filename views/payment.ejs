@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comm-Board - HTML5 Admin Template</title>
+    <style>
+        /* CSS to prevent scrolling */
+        body {
+            overflow: hidden;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="favicon.png"> -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap-icon/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/vendor/css/simplebar.css">
+    <link rel="stylesheet" href="assets/vendor/css/bs-dropzone.min.css">
+    <link rel="stylesheet" href="assets/vendor/css/bootstrap.min.css">
+    <link id="styles" rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Theme customization -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h4 id="offcanvasRightLabel">Theme Customization</h4>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="nav-position mb-30">
+                    <p><span class="text-primary"><i class="bi bi-octagon-fill"></i></span> Click the button bellow to
+                        change navbar position <strong>(Top/Left)</strong></p>
+                    <a role="button" class="btn btn-primary" id="navChange"><i class="bi bi-arrow-bar-up"></i></a>
+                </div>
+                <div class="theme-color">
+                    <p><span class="text-primary"><i class="bi bi-octagon-fill"></i></span> Click on any color bellow to
+                        change theme color</p>
+                    <button class="btn-color color-1" id="color-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Violets Are Blue"></button>
+                    <button class="btn-color color-2" id="color-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Lavender Indigo"></button>
+                    <button class="btn-color color-3" id="color-3" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Deep Magenta"></button>
+                    <button class="btn-color color-4" id="color-4" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Blue"></button>
+                    <button class="btn-color color-5" id="color-5" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Medium Aquamarine"></button>
+                    <button class="btn-color color-6" id="color-6" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Orioles Orange"></button>
+                    <button class="btn-color color-7" id="color-7" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Maya Blue"></button>
+                    <button class="btn-color color-8" id="color-8" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Deep Violet"></button>
+                    <button class="btn-color color-9" id="color-9" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Dark"></button>
+                </div>
+            </div>
+        </div>
+        <!-- Theme customization -->
+
+        <!-- header -->
+    
+        <!-- header -->
+
+        <!-- main sidebar -->
+
+        <!-- main sidebar -->
+
+        <!-- main-content -->
+        <div class="main-content-3">
+            <div class="bg-box-2">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="panel mb-g">
+                        <% if(message.success.length> 0){ %>
+                            <div class="alert alert-success" role="alert">
+                                <%= message.success %>
+                            </div>
+                            <% } %>
+                            <% if(message.danger.length> 0){ %>
+                                <div class="alert alert-danger" role="alert">
+                                    <%= message.danger %>
+                                </div>
+                            <% } %>
+                        <div class="panel-heading fw-bold text-white">
+                            <h3>Payment</h3>
+                        </div>
+                        <div class="panel-body">
+                            <!-- <form class="add-product" method="post" action="/addmenu">
+                                <div class="row g-lg-4 g-2 align-items-center">
+                                    <div class="col-sm-8 d-flex justify-content-center">
+                                        <img src="assets/images/payment.jpg" width="500px">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="btn-box justify-content-end">
+                                            <button type="reset" class="btn btn-secondary" onclick="redirectToBookSlotPage()">Reset</button>
+                                            <button type="submit" class="btn btn-primary">Download</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form> -->
+                            <% data.map((val)=>{ %>
+                            <form class="add-product" method="post" action="">
+                                <div class="row g-lg-4 g-2 align-items-center">
+                                    <div class="col-sm-8 d-flex justify-content-center" style="padding-left: 15%;">
+                                        <!-- <h2 id="totalPrice">Total Price: </h2> -->
+                                        <h2 class="fw-bold text-white">Total Price : <%= totalPrice %> Rs</h2>
+                                        <img id="downloadableImage" src="/<%= val.image %>" width="500px" style="display: block; margin: auto;">
+                                    </div>
+                                    
+                                </div>
+                            </form>
+                            <% }) %>
+
+                            <% data.map((val)=>{ %>
+                            <form class="add-product mt-3" method="post" action="">
+                                <div class="row g-lg-4 g-2 align-items-center justify-content-center" style="padding-right: 23%;">
+                                    <div class="col-sm-4 userdetails" style="padding-left: 27%; font-size: 16px;">
+                                        <label for="ProductName" class="fw-bold text-white">UPI ID : </label>
+                                    </div>
+                                    <div class="col-lg-3" style="width: 30%;">
+                                        <input type="text" value="<%= val.upi_id %>" class="form-control form-control-lg" id="date" name="date" readonly>
+                                    </div>
+                                </div>
+                            </form>
+	                        <% }) %>
+
+                            <div class="">
+                                <div class="btn-box justify-content-center mt-4">
+                                    <button type="reset" class="btn bg-white text-dark fw-bold" onclick="redirectToBookSlotPage()">Reset</button>
+                                    <!-- <button type="reset" class="btn btn-secondary" onclick="redirectToBookSlotPage()">Reset</button> -->
+                                    <button id="downloadButton" type="button"  class="btn fw-bold" style="background-color: #5cb04f;">Download</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- main-content -->
+    </div>
+
+    <script src="assets/vendor/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/vendor/js/simplebar.min.js"></script>
+    <script src="assets/vendor/js/dragula.min.js"></script>
+    <script src="assets/vendor/js/bs-dropzone.min.js"></script>
+    <script src="assets/vendor/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@zxing/library@3.0.1"></script>
+    
+    <script>
+        document.getElementById("downloadButton").addEventListener("click", function() {
+            var imgSrc = document.getElementById("downloadableImage").src;
+            var imgName = imgSrc.substring(imgSrc.lastIndexOf("/") + 1);
+            var link = document.createElement("a");
+            link.href = imgSrc;
+            link.download = imgName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+    
+            // After the file is downloaded, redirect to the bookslot page
+            redirectToBookSlotPage();
+        });
+    
+        function redirectToBookSlotPage() {
+            window.location.href = "/bookslot"; // Redirect to the bookslot page
+        }
+    </script>
+
+<!-- <script>
+    // Function to handle scanning of QR code
+    function scanQRCode() {
+        // Use ZXing library to create a code reader
+        const codeReader = new ZXing.BrowserQRCodeReader();
+
+        // Function to handle successful scanning
+        function onScanSuccess(result) {
+            // Parse the scanned QR code data (assuming it's JSON containing total price)
+            try {
+                const qrData = JSON.parse(result.text);
+                const totalPrice = qrData.totalPrice;
+                // Display the total price
+                document.getElementById('totalPrice').textContent = `Total Price: ${totalPrice} Rs`;
+            } catch (error) {
+                console.error('Error parsing QR code data:', error);
+            }
+        }
+
+        // Function to handle scanning errors
+        function onScanError(error) {
+            console.error('Error scanning QR code:', error);
+        }
+
+        // Start scanning
+        codeReader
+            .scanFromCamera()
+            .then(onScanSuccess)
+            .catch(onScanError);
+    }
+
+    // Call the function to start scanning
+    scanQRCode();
+</script> -->
+
+</body>
+
+</html>

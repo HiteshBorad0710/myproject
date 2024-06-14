@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comm-Board - HTML5 Admin Template</title>
+
+    <!-- <link rel="stylesheet" href="favicon.png"> -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap-icon/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/vendor/css/simplebar.css">
+    <link rel="stylesheet" href="assets/vendor/css/bs-dropzone.min.css">
+    <link rel="stylesheet" href="assets/vendor/css/bootstrap.min.css">
+    <link id="styles" rel="stylesheet" href="assets/css/style.css">
+    
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Theme customization -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h4 id="offcanvasRightLabel">Theme Customization</h4>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcaaddnvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="nav-position mb-30">
+                    <p><span class="text-primary"><i class="bi bi-octagon-fill"></i></span> Click the button bellow to
+                        change navbar position <strong>(Top/Left)</strong></p>
+                    <a role="button" class="btn btn-primary" id="navChange"><i class="bi bi-arrow-bar-up"></i></a>
+                </div>
+                <div class="theme-color">
+                    <p><span class="text-primary"><i class="bi bi-octagon-fill"></i></span> Click on any color bellow to
+                        change theme color</p>
+                    <button class="btn-color color-1" id="color-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Violets Are Blue"></button>
+                    <button class="btn-color color-2" id="color-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Lavender Indigo"></button>
+                    <button class="btn-color color-3" id="color-3" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Deep Magenta"></button>
+                    <button class="btn-color color-4" id="color-4" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Blue"></button>
+                    <button class="btn-color color-5" id="color-5" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Medium Aquamarine"></button>
+                    <button class="btn-color color-6" id="color-6" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Orioles Orange"></button>
+                    <button class="btn-color color-7" id="color-7" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Maya Blue"></button>
+                    <button class="btn-color color-8" id="color-8" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Deep Violet"></button>
+                    <button class="btn-color color-9" id="color-9" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Dark"></button>
+                </div>
+            </div>
+        </div>
+        <!-- Theme customization -->
+
+        <!-- header -->
+        
+        <!-- header -->
+
+        <!-- main sidebar -->
+      
+        <!-- main sidebar -->
+
+        <!-- main-content -->
+        <div class="main-content-1">
+            <div class="bg-box-1">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                    <div class="panel mb-g">
+                        <% if(message.success.length> 0){ %>
+                            <div class="alert alert-success" role="alert">
+                                <%= message.success %>
+                            </div>
+                            <% } %>
+                            <% if(message.danger.length> 0){ %>
+                                <div class="alert alert-danger" role="alert">
+                                    <%= message.danger %>
+                                </div>
+                            <% } %>
+                        <div class="panel-heading fw-bold text-white">
+                            <h3>Basic Details</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form class="add-product" method="post" action="/Userdetails">
+                                <div class="row g-lg-4 g-2 align-items-center justify-content-center">
+                                    <div class="col-sm-4 userdetails" style="padding-left: 25%; font-size: 16px;">
+                                        <label for="ProductName" class="fw-bold text-white">Date : </label>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-right: 25%; padding-left: 3%">
+                                        <input type="text" value="<%= selectedDate %>" class="form-control form-control-lg" id="date" name="date" readonly>
+                                        <!-- <input type="text" id="date" name="date" value="<%= selectedDate %>"> -->
+                                    </div>
+                                    <div class="col-sm-4 userdetails"  style="padding-left: 25%;font-size: 16px;">
+                                        <label for="ProductName" class="fw-bold text-white">Time Slot : </label>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-right: 25%; padding-left: 3%">
+                                        <input type="text" value="<%= time_slot %>" class="form-control form-control-lg" type="time_slot" id="time_slot" name="time_slot" readonly>
+                                    </div>
+                                    <div class="col-sm-4 userdetails"  style="padding-left: 25%; font-size: 16px;">
+                                        <label for="ProductName" class="fw-bold text-white">Day Slot Price : </label>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-right: 25%; padding-left: 3%">
+                                        <input type="text" value="<%= daySlotPrice %>" class="form-control form-control-lg" id="slotPrice" name="slotPrice" readonly>
+                                    </div>
+                                    <div class="col-sm-4 userdetails"  style="padding-left: 25%; font-size: 16px;">
+                                        <label for="ProductName" class="fw-bold text-white">Night Slot Price:</label>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-right: 25%; padding-left: 3%">
+                                        <input type="text" value="<%= nightSlotPrice %>" class="form-control form-control-lg" id="SlotPrice" name="SlotPrice" readonly>
+                                    </div>
+                                    <div class="col-sm-4 userdetails"  style="padding-left: 25%; font-size: 16px;">
+                                        <label for="daySlotsCount" class="fw-bold text-white">Day Slots Count:</label>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-right: 25%; padding-left: 3%">
+                                        <input type="text" value="<%= daySlotsCount %>" class="form-control form-control-lg" id="daySlotsCount" name="daySlotsCount" readonly>
+                                        <% if (daySlotsCount > 0) { %>
+                                            <span class="fw-bold text-white">
+                                                <% daySlots.forEach((slot, index) => { %>
+                                                    <%= index + 1 %>. <%= slot %><br> <!-- Display each time slot selected for daytime -->
+                                                <% }); %>
+                                            </span>
+                                        <% } %>
+                                    </div>
+                                    
+                                    <div class="col-sm-4 userdetails"  style="padding-left: 25%; font-size: 16px;">
+                                        <label for="nightSlotsCount" class="fw-bold text-white">Night Slots Count:</label>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-right: 25%; padding-left: 3%">
+                                        <input type="text" value="<%= nightSlotsCount %>" class="form-control form-control-lg" id="nightSlotsCount" name="nightSlotsCount" readonly>
+                                        <% if (nightSlotsCount > 0) { %>
+                                            <span class="fw-bold text-white">
+                                                <% nightSlots.forEach((slot, index) => { %>
+                                                   <%= index + 1 %>. <%= slot %><br> <!-- Display each time slot selected for daytime -->
+                                                <% }); %>
+                                            </span>
+                                        <% } %>
+                                    </div>
+                                    <div class="col-sm-4 userdetails" style="padding-left: 25%; font-size: 16px;">
+                                        <label for="ProductName" class="fw-bold text-white">Day Address :</label>
+                                    </div>
+                                    <% const day_address = data.filter(val => val.Timing === 'Day');
+                                    day_address.forEach((val, index) => { %>
+                                        <div class="col-sm-6" style="padding-right: 25%; padding-left: 3%">
+                                            <!-- <label for="Address<%= index + 1 %>" class="fw-bold text-white">Day Address <%= index + 1 %>:</label> -->
+                                            <input type="text" value="<%= val.Address %>" class="form-control form-control-lg" id="Address<%= index + 1 %>" name="Address<%= index + 1 %>" readonly>
+                                        </div>
+                                    <% }); %>
+                                    <div class="col-sm-4 userdetails" style="padding-left: 25%; font-size: 16px;">
+                                        <label for="ProductName" class="fw-bold text-white">Night Address :</label>
+                                    </div>
+                                    <% const night_address = data.filter(val => val.Timing === 'Night');
+                                    night_address.map((val, index) => { %>
+                                        <div class="col-sm-6" style="padding-right: 25%; padding-left: 3%">
+                                            <!-- <label for="Address<%= index + 1 %>" class="fw-bold text-white">Night Address <%= index + 1 %>:</label> -->
+                                            <input type="text" value="<%= val.Address %>" class="form-control form-control-lg" id="Address<%= index + 1 %>" name="Address<%= index + 1 %>" readonly>
+                                        </div>
+                                    <% }); %>
+                                    <div class="col-sm-4 userdetails"  style="padding-left: 25%; font-size: 16px;">
+                                        <label for="totalSlots" class="fw-bold text-white">Total Slots:</label>
+                                    </div>
+                                    <div class="col-sm-6 " style="padding-right: 25%; padding-left: 3%;">
+                                        <input type="text" value="<%= totalSlots %>" class="form-control form-control-lg" id="totalSlots" name="totalSlots" readonly>
+                                    </div>
+                                    
+                                    <div class="col-sm-4 userdetails"  style="padding-left: 25%; font-size: 16px;">
+                                        <label for="ProductName" class="fw-bold text-white">Total Price:</label>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-right: 25%; padding-left: 3%">
+                                        <input type="text" value="<%= totalPrice %>" class="form-control form-control-lg" id="totalPrice" name="totalPrice" readonly>
+                                    </div>
+                                    <div class="col-sm-4 userdetails"  style="padding-left: 25%; font-size: 16px;">
+                                        <label for="ProductName" class="fw-bold text-white">Firstname:</label>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-right: 25%; padding-left: 3%">
+                                        <input type="text" class="form-control form-control-lg" type="fname" id="fname" name="Firstname">
+                                    </div>
+                                    <div class="col-sm-4 userdetails"  style="padding-left: 25%; font-size: 16px;">
+                                        <label for="ProductName" class="fw-bold text-white">Lastname:</label>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-right: 25%; padding-left: 3%">
+                                        <input type="text" class="form-control form-control-lg" type="lname" id="lname" name="Lastname">
+                                    </div>
+                                    <div class="col-sm-4 userdetails"  style="padding-left: 25%; font-size: 16px;">
+                                        <label for="ProductName" class="fw-bold text-white">Email Addresss:</label>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-right: 25%; padding-left: 3%">
+                                        <input type="text" class="form-control form-control-lg" type="email" id="email" name="Email_Address">
+                                    </div>
+                                    <div class="col-sm-4 userdetails"  style="padding-left: 25%; font-size: 16px;">
+                                        <label for="ProductName" class="fw-bold text-white">Phone Number:</label>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-right: 25%; padding-left: 3%">
+                                        <input type="text" class="form-control form-control-lg" type="mobile" id="mobile" name="Mobile_No">
+                                    </div>
+                                    <div class="col-sm-4 userdetails"  style="padding-left: 25%; font-size: 16px;">
+                                        <label for="ProductName" class="fw-bold text-white">Notes:</label>
+                                    </div>
+                                    <div class="col-sm-6" style="padding-right: 25%; padding-left: 3%">
+                                        <input type="text" class="form-control form-control-lg" type="message" id="message" name="Notes">
+                                    </div>
+                                    <!-- <div class="col-sm-4">
+                                        <label for="Category">Product Category :</label>
+                                    </div> -->
+                                    <div class="col-sm-8">
+                                        <!-- <select name="Category" id="Category" class="form-select form-control form-control-lg">
+                                            <option value="" selected hidden>Select Category</option>
+                                            <option value="Fashion">Fashion</option>
+                                            <option value="Shoe">Shoe</option>
+                                            <option value="Cloth">Cloth</option>
+                                            <option value="Cosmetic">Cosmetic</option>
+                                            <option value="Gadget">Gadget</option>
+                                        </select>
+                                    </div> -->
+                                        <!-- <div class="col-sm-4">
+                                        <label for="ProductDscr">Product Description :</label>
+                                    </div> -->
+                                        <!-- <div class="col-sm-8">
+                                        <textarea name="Product Description" id="ProductDscr" rows="5" class="form-control form-control-lg"></textarea>
+                                    </div> -->
+                                        <!-- <div class="col-sm-4">
+                                        <label for="ProductPrice">Product Price :</label>
+                                    </div> -->
+                                        <!-- <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="number" id="ProductPrice" name="Price" class="form-control form-control-lg" max="100" min="5">
+                                        </div>
+                                    </div> -->
+                                        <!-- <div class="col-sm-4">
+                                        <label for="ProductQuantity">Product Quantity :</label>
+                                    </div> -->
+                                        <!-- <div class="col-sm-8">
+                                        <input type="number" id="ProductQuantity" name="Stock" class="form-control form-control-lg" max="100">
+                                    </div> -->
+                                        <!-- <div class="col-sm-4">
+                                        <label for="Status">Product Status :</label>
+                                    </div> -->
+                                        <!-- <div class="col-sm-8">
+                                        <select name="Status" id="Status" class="form-select form-control form-control-lg">
+                                            <option value="" selected hidden>Select Status</option>
+                                            <option value="Available">Available</option>
+                                            <option value="Sold Out">Sold Out</option>
+                                        </select>
+                                    </div> -->
+                                        <!-- <div class="col-sm-4">
+                                        <label for="Discount">Discount :</label>
+                                    </div> -->
+                                        <!-- <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <span class="input-group-text">%</span>
+                                            <input type="number" id="Discount" name="Discount" class="form-control form-control-lg" max="100">
+                                        </div>
+                                    </div> -->
+                                        <div class="">
+                                            <div class="btn-box resetbutton justify-content-center mt-4" style="padding-left: 17%;">
+                                                <!-- <button type="reset"  class="btn btn-secondary">Reset</button> -->
+                                                <button type="reset" class="btn bg-white text-dark fw-bold "  onclick="redirectToBookSlotPage()">Reset</button>
+                                                <!-- <button type="reset" class="btn btn-secondary" onclick="redirectToBookSlotPage()">Reset</button> -->
+                                                <!-- <button type="submit" class="btn fw-bold" style="background-color: #648a1d;">Make Payment</button> -->
+                                                <button type="submit" class="btn fw-bold"  style="background-color: #5cb04f;">Make Payment</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- main-content -->
+    </div>
+
+    <script src="assets/vendor/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/vendor/js/simplebar.min.js"></script>
+    <script src="assets/vendor/js/dragula.min.js"></script>
+    <script src="assets/vendor/js/bs-dropzone.min.js"></script>
+    <script src="assets/vendor/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        function redirectToBookSlotPage() {
+            window.location.href = "/bookslot";
+        }
+    </script>
+    <script>
+        // Assuming you have an input field for the number of selected slots
+        const selectedSlotsInput = document.getElementById('selectedSlots');
+    
+        // Event listener to calculate the total when the number of selected slots changes
+        selectedSlotsInput.addEventListener('input', function() {
+            // Retrieve the slot price from the input
+            const slotPrice = document.getElementById('slotPrice').value;
+    
+            // Retrieve the number of selected slots
+            const selectedSlots = selectedSlotsInput.value;
+    
+            // Calculate the total price
+            const totalPrice = slotPrice * selectedSlots;
+    
+            // Display the total price in the designated input field
+            document.getElementById('totalPrice').value = totalPrice;
+        });
+    </script>
+    
+    
+</body>
+
+</html>
