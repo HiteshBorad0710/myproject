@@ -33,7 +33,7 @@ const signup = require('../models/signupmodel');
 
 const index = (req,res) => {
     return res.render('index');
-};
+}
 
 const login = (req, res) => {
     return res.render('login');
