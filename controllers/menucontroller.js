@@ -27,9 +27,13 @@ const { default: mongoose } = require('mongoose');
 const { title } = require('process');
 const signup = require('../models/signupmodel');
 
-const index = (req, res) => {
+// const index = (req, res) => {
+//     return res.render('index');
+// };
+
+const index = (req,res) => {
     return res.render('index');
-};
+}
 
 const login = (req, res) => {
     return res.render('login');
