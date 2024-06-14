@@ -39,7 +39,7 @@ routes.get('/timeslotDelete/:_id', menucontroller.timeslotDelete);
 
 // ----------------------------------------------------Book Time Slot------------------------------------------------------------------------------------------
 
-routes.get('/bookslot', menucontroller.bookslot);
+routes.get('/https://myproject-1-5vu3.onrender.com/bookslot', menucontroller.bookslot);
 routes.post('/addbookslot', menucontroller.addbookslot);
 // routes.post('/checkslot',menucontroller.checkslot)
 

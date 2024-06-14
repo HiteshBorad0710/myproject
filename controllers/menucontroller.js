@@ -527,124 +527,53 @@ const timeslotDelete = async (req, res) => {
 //     }
 // }
 
-// const bookslot = async (req, res) => {
-//     try {
-//         const bookSlotData = await userdetailsmodel.find();
-//         const timeSlotData = await timeslotmodel.find();
-       
-//         if (!bookSlotData || !timeSlotData) {
-//             throw new Error('Failed to fetch data from the database');
-//         }
-
-//         // Get today's date and tomorrow's date 
-//         const timeZone = 'Asia/Kolkata'; // Set the desired timezone, for example 'Asia/Kolkata'
-//         const today = moment().tz(timeZone).format('YYYY-MM-DD');
-//         const tomorrow = moment().tz(timeZone).add(1, 'day').format('YYYY-MM-DD');
-
-//         // Format today's date in 24-hour format based on the timezone
-//         const formattedDate = moment().tz(timeZone).format('YYYY-MM-DD HH:mm:ss');
-
-//         // Assuming you have a selectedDate variable available in your req object
-//         const selectedDate = req.query.selectedDate || today;
-
-//         // Get the current time with timezone
-//         const currentTimeWithTimeZone = moment().tz(timeZone);
-
-//         // Render the EJS template with the fetched data and today/tomorrow dates
-//         return res.render("bookslot", {
-//             bookSlotData: bookSlotData,
-//             timeSlotData: timeSlotData,
-//             selectedDate: selectedDate, // Use selectedDate if provided, otherwise default to today
-//             today: today,
-//             tomorrow: tomorrow,
-//             timeZone: timeZone,
-//             formattedDate: formattedDate,
-//             currentTimeWithTimeZone: currentTimeWithTimeZone,
-//             moment: moment 
-//         });
-        
-//     } catch (error) {
-//         console.log("Error fetching data:", error);
-//         // Handle the error appropriately, such as rendering an error page
-//         return res.status(500).send(error.message);
-//     }
-// };
-
 const bookslot = async (req, res) => {
     try {
-        const { page = 1, limit = 10 } = req.query;
-
-        const bookSlotData = await userdetailsmodel.find({}, 'requiredField1 requiredField2') // Replace with actual fields
-            .limit(limit * 1)
-            .skip((page - 1) * limit)
-            .exec();
-
-        const timeSlotData = await timeslotmodel.find({}, 'requiredField1 requiredField2'); // Replace with actual fields
-
+        const bookSlotData = await userdetailsmodel.find();
+        const timeSlotData = await timeslotmodel.find();
+       
         if (!bookSlotData || !timeSlotData) {
             throw new Error('Failed to fetch data from the database');
         }
 
-        // Get today's date and tomorrow's date
-        const timeZone = 'Asia/Kolkata';
+        // Get today's date and tomorrow's date 
+        const timeZone = 'Asia/Kolkata'; // Set the desired timezone, for example 'Asia/Kolkata'
         const today = moment().tz(timeZone).format('YYYY-MM-DD');
         const tomorrow = moment().tz(timeZone).add(1, 'day').format('YYYY-MM-DD');
+
+        // Format today's date in 24-hour format based on the timezone
         const formattedDate = moment().tz(timeZone).format('YYYY-MM-DD HH:mm:ss');
+
+        // Assuming you have a selectedDate variable available in your req object
         const selectedDate = req.query.selectedDate || today;
+
+        // Get the current time with timezone
         const currentTimeWithTimeZone = moment().tz(timeZone);
 
-        return res.render("bookslot", {
-            bookSlotData,
-            timeSlotData,
-            selectedDate,
-            today,
-            tomorrow,
-            timeZone,
-            formattedDate,
-            currentTimeWithTimeZone,
-            moment
+        // Render the EJS template with the fetched data and today/tomorrow dates
+        return res.render("https://myproject-1-5vu3.onrender.com/bookslot", {
+            bookSlotData: bookSlotData,
+            timeSlotData: timeSlotData,
+            selectedDate: selectedDate, // Use selectedDate if provided, otherwise default to today
+            today: today,
+            tomorrow: tomorrow,
+            timeZone: timeZone,
+            formattedDate: formattedDate,
+            currentTimeWithTimeZone: currentTimeWithTimeZone,
+            moment: moment 
         });
-
+        
     } catch (error) {
         console.log("Error fetching data:", error);
+        // Handle the error appropriately, such as rendering an error page
         return res.status(500).send(error.message);
     }
 };
 
 
-// const addbookslot = async (req, res) => {
-//     try {
-//         const { date, time_slot } = req.body; // Extract date and time_slot from req.body
-//         if (!date) {
-//             req.flash('danger', "Date is required");
-//             return res.redirect("back");
-//         }
-
-//         if (!time_slot) {
-//             req.flash('danger', "Timeslot is required");
-//             return res.redirect("back");
-//         }
-
-//         const bookslot = await userdetailsmodel.findOne({
-//             date: date, // Use extracted date
-//             time_slot: time_slot 
-//         });
-  
-//         if (bookslot) {
-//             req.flash('danger', "Book slot already exists");
-//             return res.redirect("back");
-//         }
-//         return res.redirect(`/userdetails?selectedDate=${date}&time_slot=${time_slot}`);
-//     } catch (error) {
-//         console.error("Error adding book slot:", error);
-//         req.flash('danger', "Failed to add book slot");
-//         return res.redirect("back");
-//     }
-// };
-
 const addbookslot = async (req, res) => {
     try {
-        const { date, time_slot } = req.body;
+        const { date, time_slot } = req.body; // Extract date and time_slot from req.body
         if (!date) {
             req.flash('danger', "Date is required");
             return res.redirect("back");
@@ -656,10 +585,10 @@ const addbookslot = async (req, res) => {
         }
 
         const bookslot = await userdetailsmodel.findOne({
-            date,
-            time_slot
+            date: date, // Use extracted date
+            time_slot: time_slot 
         });
-
+  
         if (bookslot) {
             req.flash('danger', "Book slot already exists");
             return res.redirect("back");
@@ -671,6 +600,7 @@ const addbookslot = async (req, res) => {
         return res.redirect("back");
     }
 };
+
 
 
 // const userdetails = async (req, res) => {
@@ -726,195 +656,102 @@ const addbookslot = async (req, res) => {
 //     }
 // };
 
-// const userdetails = async (req, res) => {
-//     try {
-//         // Fetch data from the database
-//         const bookSlotData = await bookslotmodel.find();
-//         const timeSlotData = await timeslotmodel.find();
-//         const data = await adminformmodel.find({})
-//         const date = await userdetailsmodel.find({}).populate('date');
-//         const bookslot = await userdetailsmodel.find({}).populate('time_slot');
-       
-//         // Get today's date
-//         const today = moment().format('YYYY-MM-DD');
-
-//         // Get selectedDate and time_slot from the request query
-//         const selectedDate = req.query.selectedDate;
-//         let time_slot = req.query.time_slot || ''; // Default to an empty string if time_slot is undefined
-
-//         // Ensure time_slot is a string before splitting it
-//         if (!Array.isArray(time_slot)) {
-//             time_slot = time_slot.toString(); // Convert to string if it's not already
-//         }
-
-//         let totalSlots = 0;
-//         let dayTotalPrice = 0;
-//         let nightTotalPrice = 0;
-//         let daySlotsCount = 0; // Variable to count day slots
-//         let nightSlotsCount = 0; // Variable to count night slots   
-
-//         // Find the slot price for the day and night from adminform collection
-//         const dayPriceDocument = await adminformmodel.findOne({ Timing: "Day" });
-//         const nightPriceDocument = await adminformmodel.findOne({ Timing: "Night" });
-
-//         // Extract the price from the found documents        
-//         const daySlotPrice = dayPriceDocument ? dayPriceDocument.Price : 0;
-//         const nightSlotPrice = nightPriceDocument ? nightPriceDocument.Price : 0;
-
-//         if (time_slot) {
-//             const timeRanges = time_slot.split(',');
-//             // Check each time range
-//             timeRanges.forEach(range => {
-//                 const [startHour] = range.trim().split(" to ")[0].split(":");
-//                 const [endHour] = range.trim().split(" to ")[1].split(":");
-//                 const startHourInt = parseInt(startHour);
-//                 const endHourInt = parseInt(endHour);
-                
-//                 // Calculate price for each slot
-//                 let slotPrice = 0;
-//                 if (
-//                     (startHourInt >= 6 && startHourInt < 7) || // 6:00 am to 7:00 am
-//                     (startHourInt >= 7 && startHourInt < 8) || // 7:00 am to 8:00 am
-//                     (startHourInt >= 8 && startHourInt < 9) || // 8:00 am to 9:00 am
-//                     (startHourInt >= 9 && startHourInt < 10) || // 9:00 am to 10:00 am
-//                     (startHourInt >= 10 && startHourInt < 11) || // 10:00 am to 11:00 am
-//                     (startHourInt >= 11 && startHourInt < 12) || // 11:00 am to 12:00 pm
-//                     (startHourInt >= 12 && startHourInt < 13)  || //12:00 pm to 1:00 pm
-//                     (startHourInt >= 13 && startHourInt < 14) || // 1:00 pm to 2:00 pm
-//                     (startHourInt >= 14 && startHourInt < 15) || // 2:00 pm to 3:00 pm
-//                     (startHourInt >= 15 && startHourInt < 16) || // 3:00 pm to 4:00 pm
-//                     (startHourInt >= 16 && startHourInt < 17) || // 4:00 pm to 5:00 pm
-//                     (startHourInt >= 17 && startHourInt < 18)  // 5:00 pm to 6:00 pm
-//                 ) {
-//                     // Day slot
-//                     slotPrice = daySlotPrice; // Set day slot price
-//                     daySlotsCount++; // Increment day slots count
-//                 } else if (
-//                     (startHourInt >= 18 && startHourInt < 19) || // 6:00 pm to 7:00 pm
-//                     (startHourInt >= 19 && startHourInt < 20) || // 7:00 pm to 8:00 pm
-//                     (startHourInt >= 20 && startHourInt < 21) || // 8:00 pm to 9:00 pm
-//                     (startHourInt >= 21 && startHourInt < 22) || // 9:00 pm to 10:00 pm
-//                     (startHourInt >= 22 && startHourInt < 23) || // 10:00 pm to 11:00 pm
-//                     (startHourInt >= 23 && startHourInt < 24) || // 11:00 pm to 12:00 am
-//                     (startHourInt >= 0 && startHourInt < 1) || // 12:00 am to 1:00 am
-//                     (startHourInt >= 1 && startHourInt < 2) || // 1:00 am to 2:00 am
-//                     (startHourInt >= 2 && startHourInt < 3) || // 2:00 am to 3:00 am
-//                     (startHourInt >= 3 && startHourInt < 4) || // 3:00 am to 4:00 am
-//                     (startHourInt >= 4 && startHourInt < 5) || // 4:00 am to 5:00 am
-//                     (startHourInt >= 5 && startHourInt < 6)    // 5:00 am to 6:00 am
-//                 ) {
-//                     // Night slot
-//                     slotPrice = nightSlotPrice; // Set night slot price
-//                     nightSlotsCount++; // Increment night slots count
-//                 }
-//                 else if (
-//                     (startHourInt >= 0 && startHourInt < 1) // 12:00 am to 1:00 am
-//                 ) {
-//                     // Night slot (for slots between 12:00 am and 1:00 am)
-//                     slotPrice = nightSlotPrice; // Set night slot price
-//                     nightSlotsCount++; // Increment night slots count
-//                 }
-                
-//                 // Calculate slot duration in hours
-//                 const durationHours = endHourInt - startHourInt;
-                
-//                 // Increment totalSlots
-//                 totalSlots += durationHours;
-                
-//                 // Increment total price based on slot price and duration
-//                 if (slotPrice === daySlotPrice) {
-//                     dayTotalPrice += slotPrice * durationHours;
-//                 } else {
-//                     nightTotalPrice += slotPrice * durationHours;
-//                 }
-//             });
-//         }
-
-//         // Calculate total price
-//         const totalPrice = dayTotalPrice + nightTotalPrice;
-
-//         // Render the EJS template with the fetched data, today's date, slot price, and total price
-//         return res.render("userdetails", {
-//             bookSlotData: bookSlotData,
-//             timeSlotData: timeSlotData,
-//             date: date,
-//             data : data,
-//             time_slot: time_slot,
-//             bookslot: bookslot,
-//             selectedDate: selectedDate, // Use selectedDate if provided, otherwise default to today
-//             today: today,
-//             daySlotPrice: daySlotPrice, // Pass day slotPrice to the frontend
-//             nightSlotPrice: nightSlotPrice, // Pass night slotPrice to the frontend
-//             dayTotalPrice: dayTotalPrice, // Pass day total price to the frontend
-//             nightTotalPrice: nightTotalPrice, // Pass night total price to the frontend
-//             totalPrice: totalPrice, // Pass total price to the frontend
-//             totalSlots: totalSlots,
-//             adminform : adminform,
-//             daySlotsCount: daySlotsCount, // Pass day slots count to the frontend
-//             nightSlotsCount: nightSlotsCount, // Pass night slots count to the frontend
-//             nightSlots: time_slot.split(',').filter(slot => { // Pass the night slots array to the frontend
-//                 const [startHour] = slot.trim().split(" to ")[0].split(":");
-//                 return parseInt(startHour) >= 18 || parseInt(startHour) < 6; // Assuming nighttime starts from 6:00 PM to 6:00 AM
-//             }),
-//             daySlots: time_slot.split(',').filter(slot => {
-//                 const [startHour] = slot.trim().split(" to ")[0].split(":");
-//                 return parseInt(startHour) >= 6 && parseInt(startHour) < 18; // Daytime slots
-//             })
-//         });
-//     } catch (error) {
-//         console.log(error.message);
-//         return res.status(500).send(error.message);
-//     }
-// };
-
 const userdetails = async (req, res) => {
     try {
-        const bookSlotData = await bookslotmodel.find({}, 'requiredField1 requiredField2').exec();
-        const timeSlotData = await timeslotmodel.find({}, 'requiredField1 requiredField2').exec();
-        const data = await adminformmodel.find({}).exec();
-        const date = await userdetailsmodel.find({}).populate('date').exec();
-        const bookslot = await userdetailsmodel.find({}).populate('time_slot').exec();
-
+        // Fetch data from the database
+        const bookSlotData = await bookslotmodel.find();
+        const timeSlotData = await timeslotmodel.find();
+        const data = await adminformmodel.find({})
+        const date = await userdetailsmodel.find({}).populate('date');
+        const bookslot = await userdetailsmodel.find({}).populate('time_slot');
+       
+        // Get today's date
         const today = moment().format('YYYY-MM-DD');
-        const selectedDate = req.query.selectedDate;
-        let time_slot = req.query.time_slot || '';
 
+        // Get selectedDate and time_slot from the request query
+        const selectedDate = req.query.selectedDate;
+        let time_slot = req.query.time_slot || ''; // Default to an empty string if time_slot is undefined
+
+        // Ensure time_slot is a string before splitting it
         if (!Array.isArray(time_slot)) {
-            time_slot = time_slot.toString();
+            time_slot = time_slot.toString(); // Convert to string if it's not already
         }
 
         let totalSlots = 0;
         let dayTotalPrice = 0;
         let nightTotalPrice = 0;
-        let daySlotsCount = 0;
-        let nightSlotsCount = 0;
+        let daySlotsCount = 0; // Variable to count day slots
+        let nightSlotsCount = 0; // Variable to count night slots   
 
+        // Find the slot price for the day and night from adminform collection
         const dayPriceDocument = await adminformmodel.findOne({ Timing: "Day" });
         const nightPriceDocument = await adminformmodel.findOne({ Timing: "Night" });
 
+        // Extract the price from the found documents        
         const daySlotPrice = dayPriceDocument ? dayPriceDocument.Price : 0;
         const nightSlotPrice = nightPriceDocument ? nightPriceDocument.Price : 0;
 
         if (time_slot) {
             const timeRanges = time_slot.split(',');
+            // Check each time range
             timeRanges.forEach(range => {
                 const [startHour] = range.trim().split(" to ")[0].split(":");
                 const [endHour] = range.trim().split(" to ")[1].split(":");
                 const startHourInt = parseInt(startHour);
                 const endHourInt = parseInt(endHour);
-
+                
+                // Calculate price for each slot
                 let slotPrice = 0;
-                if (startHourInt >= 6 && startHourInt < 18) {
-                    slotPrice = daySlotPrice;
-                    daySlotsCount++;
-                } else {
-                    slotPrice = nightSlotPrice;
-                    nightSlotsCount++;
+                if (
+                    (startHourInt >= 6 && startHourInt < 7) || // 6:00 am to 7:00 am
+                    (startHourInt >= 7 && startHourInt < 8) || // 7:00 am to 8:00 am
+                    (startHourInt >= 8 && startHourInt < 9) || // 8:00 am to 9:00 am
+                    (startHourInt >= 9 && startHourInt < 10) || // 9:00 am to 10:00 am
+                    (startHourInt >= 10 && startHourInt < 11) || // 10:00 am to 11:00 am
+                    (startHourInt >= 11 && startHourInt < 12) || // 11:00 am to 12:00 pm
+                    (startHourInt >= 12 && startHourInt < 13)  || //12:00 pm to 1:00 pm
+                    (startHourInt >= 13 && startHourInt < 14) || // 1:00 pm to 2:00 pm
+                    (startHourInt >= 14 && startHourInt < 15) || // 2:00 pm to 3:00 pm
+                    (startHourInt >= 15 && startHourInt < 16) || // 3:00 pm to 4:00 pm
+                    (startHourInt >= 16 && startHourInt < 17) || // 4:00 pm to 5:00 pm
+                    (startHourInt >= 17 && startHourInt < 18)  // 5:00 pm to 6:00 pm
+                ) {
+                    // Day slot
+                    slotPrice = daySlotPrice; // Set day slot price
+                    daySlotsCount++; // Increment day slots count
+                } else if (
+                    (startHourInt >= 18 && startHourInt < 19) || // 6:00 pm to 7:00 pm
+                    (startHourInt >= 19 && startHourInt < 20) || // 7:00 pm to 8:00 pm
+                    (startHourInt >= 20 && startHourInt < 21) || // 8:00 pm to 9:00 pm
+                    (startHourInt >= 21 && startHourInt < 22) || // 9:00 pm to 10:00 pm
+                    (startHourInt >= 22 && startHourInt < 23) || // 10:00 pm to 11:00 pm
+                    (startHourInt >= 23 && startHourInt < 24) || // 11:00 pm to 12:00 am
+                    (startHourInt >= 0 && startHourInt < 1) || // 12:00 am to 1:00 am
+                    (startHourInt >= 1 && startHourInt < 2) || // 1:00 am to 2:00 am
+                    (startHourInt >= 2 && startHourInt < 3) || // 2:00 am to 3:00 am
+                    (startHourInt >= 3 && startHourInt < 4) || // 3:00 am to 4:00 am
+                    (startHourInt >= 4 && startHourInt < 5) || // 4:00 am to 5:00 am
+                    (startHourInt >= 5 && startHourInt < 6)    // 5:00 am to 6:00 am
+                ) {
+                    // Night slot
+                    slotPrice = nightSlotPrice; // Set night slot price
+                    nightSlotsCount++; // Increment night slots count
                 }
-
+                else if (
+                    (startHourInt >= 0 && startHourInt < 1) // 12:00 am to 1:00 am
+                ) {
+                    // Night slot (for slots between 12:00 am and 1:00 am)
+                    slotPrice = nightSlotPrice; // Set night slot price
+                    nightSlotsCount++; // Increment night slots count
+                }
+                
+                // Calculate slot duration in hours
                 const durationHours = endHourInt - startHourInt;
+                
+                // Increment totalSlots
                 totalSlots += durationHours;
-
+                
+                // Increment total price based on slot price and duration
                 if (slotPrice === daySlotPrice) {
                     dayTotalPrice += slotPrice * durationHours;
                 } else {
@@ -923,32 +760,35 @@ const userdetails = async (req, res) => {
             });
         }
 
+        // Calculate total price
         const totalPrice = dayTotalPrice + nightTotalPrice;
 
+        // Render the EJS template with the fetched data, today's date, slot price, and total price
         return res.render("userdetails", {
-            bookSlotData,
-            timeSlotData,
-            date,
-            data,
-            time_slot,
-            bookslot,
-            selectedDate,
-            today,
-            daySlotPrice,
-            nightSlotPrice,
-            dayTotalPrice,
-            nightTotalPrice,
-            totalPrice,
-            totalSlots,
-            daySlotsCount,
-            nightSlotsCount,
-            nightSlots: time_slot.split(',').filter(slot => {
+            bookSlotData: bookSlotData,
+            timeSlotData: timeSlotData,
+            date: date,
+            data : data,
+            time_slot: time_slot,
+            bookslot: bookslot,
+            selectedDate: selectedDate, // Use selectedDate if provided, otherwise default to today
+            today: today,
+            daySlotPrice: daySlotPrice, // Pass day slotPrice to the frontend
+            nightSlotPrice: nightSlotPrice, // Pass night slotPrice to the frontend
+            dayTotalPrice: dayTotalPrice, // Pass day total price to the frontend
+            nightTotalPrice: nightTotalPrice, // Pass night total price to the frontend
+            totalPrice: totalPrice, // Pass total price to the frontend
+            totalSlots: totalSlots,
+            adminform : adminform,
+            daySlotsCount: daySlotsCount, // Pass day slots count to the frontend
+            nightSlotsCount: nightSlotsCount, // Pass night slots count to the frontend
+            nightSlots: time_slot.split(',').filter(slot => { // Pass the night slots array to the frontend
                 const [startHour] = slot.trim().split(" to ")[0].split(":");
-                return parseInt(startHour) >= 18 || parseInt(startHour) < 6;
+                return parseInt(startHour) >= 18 || parseInt(startHour) < 6; // Assuming nighttime starts from 6:00 PM to 6:00 AM
             }),
             daySlots: time_slot.split(',').filter(slot => {
                 const [startHour] = slot.trim().split(" to ")[0].split(":");
-                return parseInt(startHour) >= 6 && parseInt(startHour) < 18;
+                return parseInt(startHour) >= 6 && parseInt(startHour) < 18; // Daytime slots
             })
         });
     } catch (error) {
